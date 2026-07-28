@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #05070a;
+  --panel: #0b0f16;
+  --line: #1c2531;
+  --text: #e6ecf5;
+  --text-dim: #8b98ab;
+  --text-faint: #4a5568;
+  --accent: #8fb0da;
+  --accent-soft: rgba(143, 176, 218, 0.12);
+}
+
+html.light {
+  --bg: #f5f6f8;
+  --panel: #ffffff;
+  --line: #dfe3ea;
+  --text: #10151d;
+  --text-dim: #55606f;
+  --text-faint: #9aa3b2;
+  --accent: #35618f;
+  --accent-soft: rgba(53, 97, 143, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Outlined ("hollow") heading text — used for the second line of the Hero name.
+   Stroke color is explicit (not currentColor) so it never inherits the
+   transparent fill color set on this same element. */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--text);
+  text-stroke: 1.5px var(--text);
+}
+
+/* Continuously scrolling tag row (About section "focus areas") */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+.text-dim {
+  color: var(--text-dim);
+}
+
+.text-faint {
+  color: var(--text-faint);
+}
+
+.border-hair {
+  border-color: var(--line);
+}
+
+.bg-panel {
+  background: var(--panel);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* Marching terminal-log background used in Hero */
+.terminal-log {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text-faint);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes scrollUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+.terminal-log-inner {
+  animation: scrollUp 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-log-inner {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Scrollbar (webkit) - kept subtle */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 6px;
+}
