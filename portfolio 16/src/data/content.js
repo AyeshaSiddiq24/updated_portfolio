@@ -43,7 +43,7 @@ export const experience = [
     range: 'Oct 2025 — Present',
     location: 'United States',
     title: 'AI/ML Engineer',
-    company: 'AMD',
+    company: 'Stripe',
     stats: [
       { value: '28%', label: 'LATENCY REDUCTION' },
       { value: '1.8K', label: 'TOKENS / SEC' },
@@ -56,7 +56,7 @@ export const experience = [
     range: 'May 2022 — Aug 2024',
     location: 'Hyderabad, India',
     title: 'AI/ML Engineer',
-    company: 'Accenture',
+    company: 'Capgemini',
     stats: [
       { value: '8M+', label: 'TXNS / MONTH' },
       { value: '11K+', label: 'HOURS SAVED / YR' },
